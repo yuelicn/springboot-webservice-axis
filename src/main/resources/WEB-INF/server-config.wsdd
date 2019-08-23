@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+    <globalConfiguration>
+        <parameter name="sendMultiRefs" value="true"/>
+        <parameter name="disablePrettyXML" value="true"/>
+        <parameter name="adminPassword" value="admin"/>
+        <parameter name="attachments.Directory" value=""/>
+        <parameter name="dotNetSoapEncFix" value="true"/>
+        <parameter name="enableNamespacePrefixOptimization" value="false"/>
+        <parameter name="sendXMLDeclaration" value="true"/>
+        <parameter name="sendXsiTypes" value="true"/>
+        <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+        <requestFlow>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="session"/>
+            </handler>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="request"/>
+                <parameter name="extension" value=".jwr"/>
+            </handler>
+        </requestFlow>
+    </globalConfiguration>
+    <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+    <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+    <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+
+    <service name="bdcgzcxfw_wx" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="bdcgzcxfw_wx"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.WebServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="bdcgzcxfw" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="bdcgzcxfw"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.BdcgzcxfwServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="scjdgl_jk" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="scjdgl_jk"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.ScjdglInfoServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="zwww_jk" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="zwww_jk"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.ZwwwJkServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="bdcappcxjk" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="bdcappcxjk"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.AppServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="gzcxfw_gat" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="gzcxfw_gat"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.BdcgzcxfwGatServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <service name="szfgjjglj_jk" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="iptv"/>
+        <parameter name="wsdlServiceElement" value="CSPRequestService"/>
+        <parameter name="schemaUnqualified" value="iptv"/>
+        <parameter name="wsdlServicePort" value="szfgjjglj_jk"/>
+        <parameter name="className" value="com.tusdao.webservice.service.impl.SzfgjjgljJkServiceImpl"/>
+        <parameter name="allowedMethods" value="*"/>
+    </service>
+
+    <transport name="http">
+        <requestFlow>
+            <handler type="URLMapper"/>
+            <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+        </requestFlow>
+        <parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+        <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+    </transport>
+    <transport name="local">
+        <responseFlow>
+            <handler type="LocalResponder"/>
+        </responseFlow>
+    </transport>
+</deployment>
