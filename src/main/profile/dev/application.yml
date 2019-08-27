@@ -3,9 +3,9 @@
 spring:
   # 数据库访问配置
   datasource:
-    url: jdbc:mysql://47.94.211.209:8306/statistics?allowMultiQueries=true&serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: Tusdao@mysql2019*
+    url: jdbc:mysql://47.94.211.xx:8306/statistics?allowMultiQueries=true&serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: xx
+    password: xxx
     driver-class-name: com.mysql.jdbc.Driver
     #    platform: mysql
     # 使用druid
@@ -41,5 +41,5 @@ logging:
   config: classpath:config/log/log4j2.xml
 
 constarct:
-  url: http://39.107.106.241:8880/v1/dvmorder/exec
+  url: http://xx.xx.106.241:8880/v1/dvmorder/exec
   issuer: Org_Depart_SwitchNodeAA

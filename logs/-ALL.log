@@ -1,1 +1,0 @@
-2019-08-19 10:55:42.866 INFO  com.alibaba.druid.pool.DruidDataSource [Thread-9] com.alibaba.druid.support.logging.Log4j2Impl.info(Log4j2Impl.java:106)  - {dataSource-1} closed
